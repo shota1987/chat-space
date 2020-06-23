@@ -2,19 +2,19 @@ $(function(){
     function buildHTML(message){
       
       if ( message.image ) {
-        var html =
-           `<div class="message">
+        let html =
+          `<div class="message">
             <div class="upper-message">
             <div class="upper-message__user-name">
-            ${message.user_name}
+              ${message.user_name}
             </div>
             <div class="upper-message__date">
-            ${message.created_at}
+              ${message.created_at}
             </div>
             </div>
             <div class="lower-message">
             <p class="lower-message__content">
-            ${message.content}
+              ${message.content}
             </p>
             </div>
             <img src=${message.image} >
@@ -24,22 +24,21 @@ $(function(){
       };
 
       if ( message ) {
-        var html =
-           `<div class="message">
+        let html =
+          `<div class="message">
             <div class="upper-message">
             <div class="upper-message__user-name">
-            ${message.user_name}
+              ${message.user_name}
             </div>
             <div class="upper-message__date">
-            ${message.created_at}
+              ${message.created_at}
             </div>
             </div>
             <div class="lower-message">
             <p class="lower-message__content">
-            ${message.content}
+              ${message.content}
             </p>
             </div>
-
             </div>`
         return html;
       } else {
@@ -68,5 +67,11 @@ $(function(){
       $('.form__submit').prop('disabled', false);
       $('.main__contents').animate({scrollTop: $('.main__contents')[0].scrollHeight});
     })
-})
+    .fail(function(){
+      alert('投稿に失敗しました');
+    })
+    .always(function(){
+      $('.input-form__submit').removeAttr('disabled');
+    });
+　})
 });
