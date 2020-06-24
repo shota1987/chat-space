@@ -20,13 +20,13 @@
       display: flex;
       padding: 0 20px;
       align-items: center;
+      color: white;
       &__box{
         width: 100%;
         display: flex;
         justify-content: space-between;
         font-weight: bold;        
         font-size: 16px; 
-        color: white;
         &__menu {
           display: flex;
           &__new-group {
@@ -102,7 +102,7 @@
     }
   }
   &__edit-btn{
-    color: aqua;
+    color: #38aef0;
     height: 40px;
     line-height: 40px;
     padding: 0 20px;
@@ -130,6 +130,7 @@
     float: left;
     height: 50px;
     width: calc(100% - 150px);
+    overflow: scroll;
   }
   &__mask {
     background-color: white;
