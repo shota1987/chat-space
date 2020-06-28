@@ -68,9 +68,6 @@ $(function(){
 　})
 
 var reloadMessages = function () {
-  if (window.location.href.match(/\/groups\/\d+\/messages/)){
-    var last_message_id = $('.message:last').data("message-id");
-    console.log(last_message_id);
     var href = 'api/messages#index {:format=>"json"}' 
     $.ajax({ 
       url: "api/messages", 
@@ -81,15 +78,13 @@ var reloadMessages = function () {
     .done(function (messages) {
       var insertHTML ='';
       $.each(messages, function(i, message) {
-      insertHTML += buildHTML(message)
+        insertHTML += buildHTML(message)
       });
       $('.main__contents').append(insertHTML);
-      $('.main__contents').animate({scrollTop: $('.main__contents')[0].scrollHeight});
-    })
+      })
     .fail(function () {
       alert('自動更新に失敗しました');
     });
-  }
 };
     setInterval(reloadMessages, 7000);
 });
