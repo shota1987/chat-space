@@ -79,16 +79,12 @@ var reloadMessages = function () {
       data: {last_id: last_message_id} 
     })
     .done(function (messages) {
-      console.log(messages);
       var insertHTML ='';
-        // messages.forEach(function(message){
-        // insertHTML = buildHTML(message);
-        $.each(messages, function(i, message) {
-          insertHTML += buildHTML(message)
-        });
-        $('.main__contents').append(insertHTML);
-        $('.main__contents').animate({scrollTop: $('.main__contents')[0].scrollHeight});
-      // });
+      $.each(messages, function(i, message) {
+      insertHTML += buildHTML(message)
+      });
+      $('.main__contents').append(insertHTML);
+      $('.main__contents').animate({scrollTop: $('.main__contents')[0].scrollHeight});
     })
     .fail(function () {
       alert('自動更新に失敗しました');
