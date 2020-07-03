@@ -3,9 +3,9 @@
     .main__main-header__left-box
       %h2.main__main-header__left-box__current-group
         = @group.name
-        %ul.main-header__left-box__member-list
+        %ul.main__main-header__left-box__member-list
           Member：
-          %li.main-header__left-box__member-list__member
+          %li.main__main-header__left-box__member-list__member
             - @group.group_users.each do |group_user|
               = group_user.user.name
     = link_to edit_group_path(@group) do
