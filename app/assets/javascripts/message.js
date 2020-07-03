@@ -69,19 +69,21 @@ $(function(){
 
 var reloadMessages = function () {
     var href = 'api/messages#index {:format=>"json"}' 
+      var last_message_id = $('.message').filter(":last").data('messageId')
     $.ajax({ 
       url: "api/messages", 
       type: 'get', 
       dataType: 'json', 
       data: {last_id: last_message_id} 
     })
-    .done(function (messages) {
-      var insertHTML ='';
-      $.each(messages, function(i, message) {
-        insertHTML += buildHTML(message)
+    .done(function(data){
+      var insertHTML = '';
+      data.forEach(function(message){
+      insertHTML = buildHTML(message);         
+      $('.message').append(insertHTML)
+      ScrollToNewMessage();
       });
-      $('.main__contents').append(insertHTML);
-      })
+    })
     .fail(function () {
       alert('自動更新に失敗しました');
     });

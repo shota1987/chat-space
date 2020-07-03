@@ -123,6 +123,9 @@
   padding: 45px 40px;
   background-color: #fafafa;
   overflow: scroll;
+  .message{
+    padding: 0px 0px 46px 0px;
+  }
 }
 
 .form {
@@ -130,34 +133,40 @@
   box-sizing: border-box;
   height: 90px;
   padding: 20px 50px 20px 40px;
-  &__message {
-    border: none;
-    float: left;
-    height: 50px;
-    width: calc(100% - 150px);
-    overflow: scroll;
-  }
+  
+ 
   &__mask {
     background-color: white;
-    float: left;
+    width: 82%;
     height: 50px;
     padding-right: 10px;
+    position: relative;
+    float: left;
+    &__message {
+      border: none;
+      height: 50px;
+    }
     &__image {
       font-size: 20px;
-      line-height: 50px;
+      position: absolute;
+      top: 15px;
+      right: 15px;
     }
     .hidden {
       display: none;
     }
   }
-  &__submit {
-    background-color: #38aef0;
-    color: white;
-    float: right;
-    font-size: 16px;
-    height: 50px;
-    margin-left: 15px;
-    padding: 0 30px;
+  &__send{
+    float: raight;
+    &__submit {
+      background-color: #38aef0;
+      color: white;
+      font-size: 16px;
+      height: 50px;
+      margin-left: 22px;
+      padding: 0 30px;
+
+    }
   }
 }
 }
